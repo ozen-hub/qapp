@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <div class="main-outer">
+        <div class="top-outer">
+            <div class="left-side side">
+                <div class="box">
+                    <span>
+                        <span id="min">00</span>
+                        :
+                        <span id="sec">00</span>
+                    </span>
+                </div>
+                <div class="box">
+                   <span>0/5</span>
+                </div>
+            </div>
+            <div class="right-side side">
+                <button onclick="reset()">Reset</button>
+                <button onclick="start()">Start</button>
+            </div>
+        </div>
+        <div class="middle">
+            <span>10</span>&nbsp;&nbsp;
+            <span>+</span>&nbsp;&nbsp;
+            <span>10</span>&nbsp;&nbsp;
+            <span>=</span>&nbsp;&nbsp;
+            <span>?</span>
+        </div>
+        <div class="bottom">
+            <input type="number">
+            <input type="button" value="Submit">
+        </div>
+    </div>
+
+
+    <script src="main.js"></script>
+</body>
+</html>
