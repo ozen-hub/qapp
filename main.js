@@ -19,8 +19,27 @@ let num2Element=document.getElementById('num2');
 let opElement=document.getElementById('op');
 
 let answerElement=document.getElementById('answer');
+let table=document.getElementById('result_table_body');
 
 let result=[];
+
+const setTableData=()=>{
+    result.forEach(item=>{
+        let row = document.createElement('tr');
+
+        for(let key in item){
+            if(item.hasOwnProperty(key)){
+                let cell = document.createElement('td');
+                cell.textContent=item[key];
+                row.appendChild(cell);
+            }
+        }
+
+        table.appendChild(row);
+
+    });
+}
+
 
 const setAnswer=()=>{
     let correctAnswer=0;
@@ -34,17 +53,22 @@ const setAnswer=()=>{
     }
 
     result.push({
-        'Number 1':qNum1,
-        'Number 2':qNum2,
-        'Correct Answer':correctAnswer,
-        'User Answer':userAnswer,
-        'Operator':selectedOp,
+        'number1':qNum1,
+        'number2':qNum2,
+        'correctAnswer':correctAnswer,
+        'userAnswer':userAnswer,
+        'operator':selectedOp,
         'time':minElement.innerHTML+':'+secElement.innerHTML,
         'isCorrect':correctAnswer===userAnswer
     });
 
+    answerElement.value=0;
+
     if (count==5) {
         count=0;
+
+        setTableData();
+
         reset();
     }
 

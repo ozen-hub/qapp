@@ -3,6 +3,14 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  flex-direction: column;
+}
+
+.table-outer {
+  width: 800px;
+  height: 450px;
+  overflow: auto;
+  margin-top: 10px;
 }
 
 .main-outer {
