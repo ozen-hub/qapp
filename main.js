@@ -20,7 +20,14 @@ const setCount=()=>{
 }
 
 const manageQuestion=()=>{
-    
+    setCount();
+
+    qNum1= Math.floor(Math.random()*100)+1;
+    qNum2= Math.floor(Math.random()*100)+1;
+    selectedOp = op[Math.floor(Math.random()*5)];
+
+    console.log(qNum1,qNum2,selectedOp);
+
 }
 
 const reset=()=>{
@@ -33,6 +40,9 @@ const reset=()=>{
 }
 
 const countdown = ()=>{
+
+    manageQuestion();
+
     if(interval){
         clearInterval(interval);
     }
