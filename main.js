@@ -14,6 +14,44 @@ let secElement=document.getElementById('sec');
 
 let countElement=document.getElementById('count');
 
+let num1Element=document.getElementById('num1');
+let num2Element=document.getElementById('num2');
+let opElement=document.getElementById('op');
+
+let answerElement=document.getElementById('answer');
+
+let result=[];
+
+const setAnswer=()=>{
+    let correctAnswer=0;
+    let userAnswer=parseInt(answerElement.value);
+    switch(selectedOp){
+        case '+':correctAnswer=qNum1+qNum2; break;
+        case '-':correctAnswer=qNum1-qNum2; break;
+        case '/':correctAnswer=qNum1/qNum2; break;
+        case '*':correctAnswer=qNum1*qNum2; break;
+        case '%':correctAnswer=qNum1%qNum2;
+    }
+
+    result.push({
+        'Number 1':qNum1,
+        'Number 2':qNum2,
+        'Correct Answer':correctAnswer,
+        'User Answer':userAnswer,
+        'Operator':selectedOp,
+        'time':minElement.innerHTML+':'+secElement.innerHTML,
+        'isCorrect':correctAnswer===userAnswer
+    });
+
+    if (count==5) {
+        count=0;
+        reset();
+    }
+
+    manageQuestion();
+
+}
+
 const setCount=()=>{
     count++;
     countElement.innerHTML=count;
@@ -26,8 +64,9 @@ const manageQuestion=()=>{
     qNum2= Math.floor(Math.random()*100)+1;
     selectedOp = op[Math.floor(Math.random()*5)];
 
-    console.log(qNum1,qNum2,selectedOp);
-
+    num1Element.innerHTML=qNum1;
+    num2Element.innerHTML=qNum2;
+    opElement.innerHTML=selectedOp;
 }
 
 const reset=()=>{
@@ -68,5 +107,6 @@ const countdown = ()=>{
 }
 
 const start = ()=>{
+    result=[];
     countdown();
 }
